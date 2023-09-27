@@ -1,6 +1,6 @@
 public class Monster extends Creature{
-    @Override
-    public void attack(Creature enemy) {
-        super.attack(enemy);
+
+    public Monster(int health, int attack, int minDamage, int maxDamage, int defense) {
+        super(health, attack, minDamage, maxDamage, defense);
     }
 }
