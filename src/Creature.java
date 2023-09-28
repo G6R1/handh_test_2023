@@ -9,7 +9,7 @@ public abstract class Creature {
     private int defense;
     private boolean isAlive = true;
 
-    private Creature(int health, int attack, int minDamage, int maxDamage, int defense) {
+    public Creature(int health, int attack, int minDamage, int maxDamage, int defense) {
         //будем ли валидировать - private конструктор, метод для создания
         this.health = health;
         this.attack = attack;
@@ -28,6 +28,11 @@ public abstract class Creature {
     }
 
     public abstract static  <T extends Creature> T create(int health, int attack, int minDamage, int maxDamage, int defense) ;
+
+    protected void checkParams(int health, int attack, int minDamage, int maxDamage, int defense) {
+        boolean at = 0 < attack && attack <= 30;
+        boolean df = 0 < defense && defense <= 30;
+    };
 
     public int getHealth() {
         return health;
