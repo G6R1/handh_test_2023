@@ -9,8 +9,8 @@ public abstract class Creature {
     private int defense;
     private boolean isAlive = true;
 
-    public Creature(int health, int attack, int minDamage, int maxDamage, int defense) {
-        //будем ли валидировать
+    private Creature(int health, int attack, int minDamage, int maxDamage, int defense) {
+        //будем ли валидировать - private конструктор, метод для создания
         this.health = health;
         this.attack = attack;
         this.minDamage = minDamage;
@@ -19,11 +19,15 @@ public abstract class Creature {
     }
 
     public void hit(Creature enemy) {
-        if (Objects.equals(this, enemy))
-            System.out.println("Нельзя атаковать самого себя.");
+        if (Objects.equals(this, enemy)) {
+            System.out.println("Нельзя атаковать самого себя."); //исключение?
+            return;
+        }
 
         int attMod = this.attack - enemy.getDefense() + 1;
     }
+
+    public abstract static  <T extends Creature> T create(int health, int attack, int minDamage, int maxDamage, int defense) ;
 
     public int getHealth() {
         return health;

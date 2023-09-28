@@ -9,7 +9,7 @@ public class Player extends Creature {
         return healingLimit;
     }
 
-    public void setHealingLimit(int healingLimit) {
+    private void setHealingLimit(int healingLimit) {
         this.healingLimit = healingLimit;
     }
 }
